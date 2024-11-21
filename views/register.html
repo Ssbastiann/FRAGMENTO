@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/LOGO.png">
+    <link rel="stylesheet" href="../css/register.css">
+    <title>LOGIN</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        function RegistroCliente(event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del botón
+            /* Obtener los valores de los campos de entrada */
+            var username = document.getElementById("username").value.trim();
+            var email = document.getElementById("email").value.trim();
+
+            // Verificar que los campos estén completos
+            if (!username || !email) {
+                alert("Todos los campos son obligatorios.");
+                return;
+            }
+
+            /* Realizar la petición AJAX */
+            $.ajax({
+                url: "http://localhost/fragmento/api/Core.php",
+                type: 'POST',
+                data: {
+                    RegistroCliente: 1,
+                    username: username,
+                    email: email
+                },
+                dataType: 'json',
+                success: function (response) {
+                    // Verifica si el estado es 'success' o 'error' y muestra el mensaje adecuado
+                    if (response.status === "success") {
+                        alert(response.message); // Muestra el mensaje de éxito
+                        window.location.href = "index.php"; // Redirige al usuario a la página
+                    } else if (response.status === "error") {
+                        alert(response.message); // Muestra el mensaje de error (por ejemplo, "Este correo electrónico ya está registrado.")
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error: " + error);
+                    alert("Hubo un problema al realizar el registro");
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="index.php" class="header">
+            <img src="../img/fragmento_header.png" alt="Logotipo de FRAGMENTO" title="Logotipo de FRAGMENTO"
+                class="logo">
+        </a>
+    </div>
+    <div class="register-div">
+        <section class="register-section">
+            <h1>REGISTRARSE</h1>
+            <p>Regístrate para recibir ofertas o actualizaciones.</p>
+            <form action="" method="post">
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Ingresa tu nombre" name="username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Ingresa tu correo" name="email" required>
+                </div>
+                <button type="submit" onclick="RegistroCliente(event)">Enviar</button>
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>

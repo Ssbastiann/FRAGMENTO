@@ -1,0 +1,91 @@
+/* Reset básico */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: book-antiqua, palatino, serif;
+}
+
+/* ***************** REGISTER **************** /
+
+/* header */
+
+.header {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1%;
+}
+
+.logo {
+    max-width: 60%;
+}
+
+/* section */
+
+.register-div{
+    display: flex;
+    justify-content: center;
+}
+
+.register-section {
+    background-color: white;
+    margin: 6vh;
+    padding: 5vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.register-section p {
+    font-size: 16px;
+    padding: 3vh;
+}
+
+/* Estilos del formulario */
+.form-group {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+label {
+    display: block;
+    margin-bottom: 1vh;
+    font-weight: bold;
+    color: #0b0b0b;
+}
+
+input[type="email"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+button[type="submit"] {
+    width: 30%;
+    padding: 10px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #00b318a5;
+}

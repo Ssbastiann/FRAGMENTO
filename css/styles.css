@@ -1,0 +1,473 @@
+/* Reset básico */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: book-antiqua, palatino, serif;
+}
+
+/* INDEX */
+
+/* logo */
+
+@keyframes inshow {
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.logo-header {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /*Se llama a la animacion*/
+    animation: inshow linear forwards;
+    animation-timeline: view();
+}
+
+.logo {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+
+/* header */
+
+.header-container {
+    color: black;
+    background-color: white;
+    margin: 10px 2%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.div-tittle {
+    display: flex;
+    align-items: center;
+}
+
+.header-tittle {
+    font-size: 150%;
+    text-align: left;
+    margin: 10px;
+    font: bold;
+}
+
+
+.logo2 {
+    width: 35px;
+}
+
+
+.header-nav a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 5px;
+    margin: 10px;
+    font-size: 100%;
+}
+
+.header-nav a:hover{
+    text-decoration:underline;
+}
+
+
+/*menu*/
+/* Estilos generales del menú */
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25%; /* Ancho del menú para pantallas grandes */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: rgba(255, 252, 252, 0.812); /* Fondo oscuro translúcido */
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 15px 0 0 15px;
+    visibility: hidden; /* Oculto por defecto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease; /* Animación suave para mostrar/ocultar */
+    z-index: 1000; /* Asegura que el menú quede sobre otros elementos */
+}
+
+
+
+/* Hover en el botón de cerrar */
+#close:hover {
+    color: rgb(68, 83, 97);
+}
+
+/* Media Queries para ajustar en pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .menu {
+        width: 35%; /* Aumenta el ancho en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        width: 40%; /* Menú ocupa la mitad de la pantalla en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        width: 50%; /* Menú casi ocupa toda la pantalla en móviles */
+        border-radius: 0; /* Elimina el borde redondeado para mejor ajuste */
+    }
+}
+
+
+/*filtros*/
+
+.lista-filtros{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: rgb(171, 216, 255);
+}
+.lista-filtros a, .lista-filtros strong{
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+}
+.lista-filtros a:hover{
+    text-decoration:underline;
+}
+
+/* main */
+
+/* Estilos generales del contenedor */
+.container-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Columnas automáticas y ajustables */
+    gap: 10px;
+    padding: 20px; /* Añade algo de padding para mejor visualización en pantallas pequeñas */
+}
+
+/* Estilos de cada item */
+.item {
+    border-radius: 10px;
+    background-color: #fff; /* Añade un fondo para visibilidad */
+    overflow: hidden; /* Para evitar desbordamientos si el contenido se expande */
+}
+
+.item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+/* Estilos del texto en los items */
+.info-item h2 {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+/* Imagen dentro del item */
+.item img {
+    width: 100%;
+    height: 300px; /* Puedes ajustar la altura fija si prefieres */
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.3s ease;
+}
+
+.item figure {
+    overflow: hidden;
+}
+
+/* Efecto de hover en la imagen */
+.item:hover img {
+    transform: scale(1.05);
+    border-radius: 10px 10px 0 0;
+}
+
+/* Media Queries para ajustar el diseño en pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .container-items {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .container-items {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .container-items {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+    }
+}
+
+/* follow */
+
+/* Estilos generales de la sección Follow */
+.follow {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000; /* Fondo claro */
+    padding: 40px 20px; /* Espaciado interno */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    margin: auto; /* Centrado horizontal */
+}
+
+/* Estilo del título Follow */
+.follow-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff; /* Color del título */
+    margin-bottom: 20px;
+}
+
+/* Contenedor de los enlaces */
+.follow-links {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaciado entre los enlaces */
+}
+
+/* Estilos generales para los enlaces */
+.follow-links a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #007bff; /* Color inicial de los enlaces */
+    padding: 10px 20px;
+    border: 2px solid #007bff; /* Borde del color principal */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+/* Estilo al hacer hover sobre los enlaces */
+.follow-links a:hover {
+    background-color: #007bff; /* Fondo azul al hacer hover */
+    color: #fff; /* Color blanco para el texto */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .follow-links {
+        flex-direction: column; /* Coloca los enlaces en columna en lugar de fila */
+        gap: 10px; /* Menor espaciado entre los enlaces */
+    }
+    
+    .follow-links a {
+        width: 100%; /* Enlaces ocupan todo el ancho */
+        padding: 12px; /* Ajusta el padding */
+    }
+}
+
+/* About */
+
+/* Estilos generales de la sección Nosotros */
+.about {
+    
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff; /* Fondo claro */
+    padding: 40px 20px; /* Espaciado interno */
+    text-align: center;
+    margin: auto; /* Centrado horizontal */
+}
+
+/* Estilo del título de la sección */
+.about-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333; /* Color oscuro para el título */
+    margin-bottom: 20px;
+}
+
+/* Estilo del texto */
+.about p {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #555; /* Color ligeramente más claro para el texto */
+    margin-bottom: 0; /* Sin margen inferior */
+    padding: 0 20px; /* Espaciado lateral para mejorar la legibilidad en pantallas pequeñas */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .about {
+        padding: 40px 15px; /* Reducir el padding en pantallas pequeñas */
+    }
+
+    .about-title {
+        font-size: 28px; /* Ajustar el tamaño del título en pantallas pequeñas */
+    }
+
+    .about p {
+        font-size: 16px; /* Texto más pequeño en pantallas pequeñas */
+        padding: 0 10px; /* Reducir el padding lateral */
+    }
+}
+
+/*Comments*/
+
+/* Estilos generales de la sección */
+.opinions {
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del título */
+.opinions h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Contenedor de cada caja de opinión */
+.caja-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo de la caja de comentarios */
+.caja {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #4CAF50;
+}
+
+/* Icono de comentarios */
+.caja i.fa-comments-o {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+/* Estilos de la sección del usuario */
+.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Imagen del usuario */
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Nombre del usuario */
+.user h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos de las estrellas */
+.stars {
+    color: #FFD700; /* Color dorado para las estrellas */
+    margin-bottom: 10px;
+}
+
+/* Comentario del usuario */
+.comment {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Estilo responsivo */
+@media (min-width: 600px) {
+    .caja-contenedor {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .caja {
+        width: 48%;
+    }
+}
+
+
+/*footer*/
+
+
+footer{
+    background-color: black;
+    color: rgb(171, 216, 255);
+    text-align: center;
+}
+footer h2{
+    font-size: 150%;
+    margin: 10px;
+}
+footer p{
+    font-size: 100%;
+    margin: 10px;
+}
+
+/* LOGIN */
+
+.div-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.login-section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-section h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.login-section p {
+    font-size: 16px;
+    color: #666;
+}
